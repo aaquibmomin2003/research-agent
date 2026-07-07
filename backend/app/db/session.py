@@ -1,20 +1,12 @@
-"""
-Database dependency for FastAPI.
-"""
+from sqlalchemy.orm import Session
 
 from app.db.database import SessionLocal
 
 
 def get_db():
-    """
-    Creates a new database session
-    for every request.
-    """
-
-    db = SessionLocal()
+    db: Session = SessionLocal()
 
     try:
         yield db
-
     finally:
         db.close()

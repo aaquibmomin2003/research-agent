@@ -1,17 +1,17 @@
 fastapi
 uvicorn[standard]
 
-python-dotenv
+sqlalchemy>=2.0
+psycopg[binary]
+alembic
 
+python-dotenv
 pydantic
 pydantic-settings
 
 python-multipart
-
 rich
-
 orjson
-
 httpx
 llama-index
 llama-index-vector-stores-chroma

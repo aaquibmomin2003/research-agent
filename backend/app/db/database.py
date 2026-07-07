@@ -1,21 +1,16 @@
-"""
-Database configuration.
-
-This module creates the SQLAlchemy engine and session factory.
-"""
-
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-DATABASE_URL = "sqlite:///research_agent.db"
+from app.core.config import settings
 
 engine = create_engine(
-    DATABASE_URL,
-    connect_args={"check_same_thread": False},
+    settings.DATABASE_URL,
+    pool_pre_ping=True,
+    echo=settings.DEBUG,
 )
 
 SessionLocal = sessionmaker(
-    autocommit=False,
-    autoflush=False,
     bind=engine,
+    autoflush=False,
+    autocommit=False,
 )
