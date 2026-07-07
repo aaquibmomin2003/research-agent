@@ -10,8 +10,8 @@ class DocumentRepository:
     def __init__(self, db: Session):
         self.db = db
 
-    def create(self, document: Document):
-
+    def create(self, document):
+    
         self.db.add(document)
 
         self.db.commit()
@@ -49,3 +49,4 @@ class DocumentRepository:
         self.db.delete(document)
 
         self.db.commit()
+    

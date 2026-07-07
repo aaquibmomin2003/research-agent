@@ -1,14 +1,8 @@
 import logging
 
-from rich.logging import RichHandler
-
-
 logging.basicConfig(
     level=logging.INFO,
-    format="%(message)s",
-    handlers=[
-        RichHandler()
-    ],
+    format="%(asctime)s | %(levelname)s | %(message)s",
 )
 
 logger = logging.getLogger("research-agent")
